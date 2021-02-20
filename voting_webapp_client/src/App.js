@@ -1,6 +1,5 @@
-
 import './App.css';
-import VoteWizard from "./compnents/VoteWizard/VoteWizard";
+
 
 function App() {
   return (
