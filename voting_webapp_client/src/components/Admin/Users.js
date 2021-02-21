@@ -1,6 +1,5 @@
 import { useState} from "react";
 import Admin from "./Admin";
-import Legislative from "./Legislative";
 import {Table} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 

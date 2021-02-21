@@ -1,4 +1,4 @@
-import { Link,navigate,Redirect ,Router } from "@reach/router"
+import { navigate,Router } from "@reach/router"
 import Presidential from './Presidential'
 import Region from "./Region"
 import Party from "./Party"

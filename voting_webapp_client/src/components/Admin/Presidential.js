@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react";
-import { Link, Router } from "@reach/router"
+import {useState} from "react";
+
 // import Chart from '../components/Chart';
-import {Radar,Pie,Line,Bar} from 'react-chartjs-2';
+import {Radar,Pie,Bar} from 'react-chartjs-2';
 import Admin from "./Admin";
 
 export default props => {
