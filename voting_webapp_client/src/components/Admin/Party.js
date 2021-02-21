@@ -9,11 +9,13 @@ export default props => {
     const [lab,setlab]=useState("");
     const partyname=props.nt;
     var arr=[];
+    var sum=0;
     for(var i=0;i<5;i++){
         var rand =(Math.random() * (1000));
         arr.push(rand)
+        sum+=parseInt(rand)
     }
-    var mail =25+(Math.random() * (100));
+    var mail =(Math.random() * (100));
 
 
     var party=['Jerusalem','Nablus','Ramallah','Jenen']
@@ -104,11 +106,12 @@ export default props => {
             <div style={{display:"flex"}}>
                 <div style={{display:"block",width:600,height:400,marginRight:100,marginLeft:50}}>
                     <Bar data={data}/>
+                    <h4>Total Votes: {sum}</h4>
                     
                 </div>
                 <div style={{display:"block",width:600,height:400}}>
                     <Pie data={gender}/>
-                    
+                    <h4>{parseInt(sum*mail/100)}  /  {parseInt(sum*(100-mail)/100)}</h4>
                 </div>
             </div>
         </div>
