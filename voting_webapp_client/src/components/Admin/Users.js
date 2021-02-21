@@ -1,7 +1,4 @@
-import {useEffect, useState} from "react";
-import { Link, Router,navigate } from "@reach/router"
-// import Chart from '../components/Chart';
-import {Doughnut,Pie,Line,Bar} from 'react-chartjs-2';
+import { useState} from "react";
 import Admin from "./Admin";
 import Legislative from "./Legislative";
 import {Table} from "react-bootstrap";
@@ -15,7 +12,6 @@ export default props => {
     return(
         <div>
             <Admin/>
-            <Legislative/>
             <div>
             <Table striped bordered hover>
                     <thead>

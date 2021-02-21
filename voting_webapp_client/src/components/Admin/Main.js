@@ -5,11 +5,10 @@ import Party from "./Party"
 import Users from "./Users"
 
 
-function App() {
+function Main() {
     navigate("/admin/presidential")
     return (
     <div className="App">
-    <Link to="/admin/presidential">Admin</Link>
     <Router>
         <Presidential path="/admin/presidential"/>
         <Region path="/admin/legislative/region/:nt"/>
@@ -20,4 +19,4 @@ function App() {
     );
 }
 
-export default App;
+export default Main;
