@@ -29,11 +29,7 @@ module.exports.deleteOfficialUser = (request, response) => {
         .then(deleteConfirmation => response.json(deleteConfirmation))
         .catch(err => response.json(err))
 };
-module.exports.findAllOfficialUserdistrict = (request, response) => {
-    OfficialUser.find({district:request})
-        .then(allOfficialUser => response.json(allOfficialUser))
-        .catch(err => response.json(err))
-};
+
 module.exports.findAllOfficialUserdistrict = (request, response) => {
     OfficialUser.find({district:request.params.district})
         .then(allOfficialUser => response.json(allOfficialUser))
@@ -45,13 +41,27 @@ module.exports.findAllOfficialUsergender = (request, response) => {
         .catch(err => response.json(err))
 };
 module.exports.findAllOfficialUserdistrict_gender = (request, response) => {
-    OfficialUser.find({district:request.params.district},{gender:request.params.gender})
+    OfficialUser.find({district:request.params.district, gender:request.params.gender})
         .then(allOfficialUser => response.json(allOfficialUser))
         .catch(err => response.json(err))
 };
-module.exports.findAllOfficialUsercandidate = (request, response) => {
-    OfficialUser.find({legislativeVote:{candidate:request.params.candidate}})
+module.exports.findLegislativeVoteCandy = (request, response) => {
+OfficialUser.find({'legislativeVote.candidate': request.params.candidate })
         .then(allOfficialUser => response.json(allOfficialUser))
         .catch(err => response.json(err))
 };
-
+module.exports.findLegislativeVoteParty = (request, response) => {
+    OfficialUser.find({'legislativeVote.partyList': request.params.partyList })
+            .then(allOfficialUser => response.json(allOfficialUser))
+            .catch(err => response.json(err))
+    };
+module.exports.findpresidentialVoteCandy = (request, response) => {
+    OfficialUser.find({'presidentialVote.partyList': request.params.partyList })
+            .then(allOfficialUser => response.json(allOfficialUser))
+            .catch(err => response.json(err))
+    };
+module.exports.findPresidentialVoteParty = (request, response) => {
+    OfficialUser.find({'presidentialVote.partyList': request.params.partyList })
+            .then(allOfficialUser => response.json(allOfficialUser))
+            .catch(err => response.json(err))
+    };

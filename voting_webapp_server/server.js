@@ -12,6 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 require('./server/routes/user.route')(app);
+require('./server/routes/officialuser.route')(app);
+require('./server/routes/district.route')(app);
 
 const port = 8000;
 
