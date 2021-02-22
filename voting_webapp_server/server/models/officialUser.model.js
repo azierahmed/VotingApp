@@ -31,8 +31,8 @@ const OfficialUserSchema = new mongoose.Schema({
         required: [true, "District is required"],
         minLength: [2, "District must be at least 2 characters long"]
     },
-    legislativeVote: [{candidate:"Undecided"}, {partyList:"Undecided"}],
-    presidentialVote: [{candidate:"Undecided"}, {partyList:"Undecided"}]
+    legislativeVote: {candidate:"Undecided",partyList:"Undecided"},
+    presidentialVote: {candidate:"Undecided",partyList:"Undecided"}
 }, {timestamps: true});
 
 const OfficialUser = mongoose.model('OfficialUser', OfficialUserSchema);
