@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
-import {navigate } from "@reach/router"
-// import Chart from '../components/Chart';
+import {navigate } from "@reach/router";
 import {Pie,Bar} from 'react-chartjs-2';
 import Admin from "./Admin";
 import Legislative from "./Legislative";

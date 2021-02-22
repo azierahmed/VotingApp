@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import { Link, Router,navigate } from "@reach/router"
-// import Chart from '../components/Chart';
 import {Doughnut,Pie,Line,Bar} from 'react-chartjs-2';
 import Admin from "./Admin";
 import Legislative from "./Legislative";

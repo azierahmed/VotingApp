@@ -1,11 +1,13 @@
 
 import { Link, Router } from "@reach/router"
-// import Chart from '../components/Chart';
 import Presidential from './Presidential'
 import Legislative from './Legislative'
 import Users from './Users'
+import {setDropdownOpen,dropdownOpen,Nav,Dropdown} from 'react'
+import {NavLink,NavItem,DropdownItem,DropdownToggle,toggle,DropdownMenu} from 'reactstrap'
 
 export default props => {
+    const toggle = () => setDropdownOpen(!dropdownOpen);
     
     return(
         <div>

@@ -5,7 +5,10 @@ import Party from "./Party"
 import Users from "./Users"
 
 
+
 function Main() {
+    
+
     navigate("/admin/presidential")
     return (
     <div className="App">
@@ -17,6 +20,7 @@ function Main() {
     </Router>
     </div>
     );
+    
 }
 
 export default Main;
