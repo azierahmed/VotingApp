@@ -9,5 +9,105 @@
     <schema id="4" parent="1" name="config"/>
     <schema id="5" parent="1" name="local"/>
     <schema id="6" parent="1" name="team_manager"/>
+    <schema id="7" parent="1" name="voting_webapp">
+      <Current>1</Current>
+    </schema>
+    <table id="8" parent="7" name="officialusers"/>
+    <table id="9" parent="7" name="parties"/>
+    <table id="10" parent="7" name="presidents"/>
+    <column id="11" parent="8" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="12" parent="8" name="ID">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="13" parent="8" name="__v">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="14" parent="8" name="createdAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="15" parent="8" name="presidentialVote">
+      <DataType>map(0)|4999544s</DataType>
+    </column>
+    <column id="16" parent="8" name="updatedAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="17" parent="8" name="district">
+      <Position>1</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="18" parent="8" name="presidentialVote.candidate">
+      <Position>1</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="19" parent="8" name="firstName">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="20" parent="8" name="presidentialVote.partyList">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="21" parent="8" name="gender">
+      <Position>3</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="22" parent="8" name="registrationNumber">
+      <Position>3</Position>
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="23" parent="8" name="lastName">
+      <Position>4</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="24" parent="8" name="legislativeVote">
+      <Position>5</Position>
+      <DataType>map(0)|4999544s</DataType>
+    </column>
+    <column id="25" parent="8" name="legislativeVote.candidate">
+      <Position>6</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="26" parent="8" name="legislativeVote.partyList">
+      <Position>7</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="27" parent="9" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="28" parent="9" name="__v">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="29" parent="9" name="candidateName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="30" parent="9" name="createdAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="31" parent="9" name="listName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="32" parent="9" name="updatedAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="33" parent="10" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="34" parent="10" name="__v">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="35" parent="10" name="candidateName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="36" parent="10" name="createdAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="37" parent="10" name="listName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="38" parent="10" name="updatedAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
   </database-model>
 </dataSource>

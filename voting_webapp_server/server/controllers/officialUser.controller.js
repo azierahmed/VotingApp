@@ -65,3 +65,9 @@ module.exports.findPresidentialVoteParty = (request, response) => {
             .then(allOfficialUser => response.json(allOfficialUser))
             .catch(err => response.json(err))
     };
+
+module.exports.findByRealID = (request, response) => {
+    OfficialUser.find({ID: request.params.ID})
+        .then(foundUser => response.json(foundUser))
+        .catch(err => response.json(err))
+};

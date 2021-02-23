@@ -13,5 +13,5 @@ module.exports = function(app){
     app.get('/api/official/leg/partyList/:partyList', officialuser.findLegislativeVoteParty)
     app.get('/api/official/pres/candidate/:candidate', officialuser.findpresidentialVoteCandy)
     app.get('/api/official/pres/partyList/:partyList', officialuser.findPresidentialVoteParty)
-    
+    app.get('/api/official/getById/:ID', officialuser.findByRealID)
 }

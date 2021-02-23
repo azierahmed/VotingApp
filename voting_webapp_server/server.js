@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 require('./server/routes/user.route')(app);
 require('./server/routes/officialuser.route')(app);
 require('./server/routes/district.route')(app);
+require('./server/routes/party.route')(app);
+require('./server/routes/president.route')(app);
 
 const port = 8000;
 

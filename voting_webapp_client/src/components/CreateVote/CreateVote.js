@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Container, ProgressBar, Table} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
 
 
 const CreateVote = () => {
@@ -10,25 +11,53 @@ const CreateVote = () => {
     const [presidentialVote, setPresidentialVote] = useState('')
     const [showPresidential, setShowPresidential] = useState(false)
     const [endVoting, setEndVoting] = useState(false)
+    const [user, setUser] = useState("")
+    const [partyLists, setPartyLists] = useState([])
+    const [presidents, setPresidents] = useState([])
+    const [updatedUser,setUpdatedUser] = useState("")
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/parties")
+            .then(response => setPartyLists((response.data)))
+            .catch(error => console.log("There was an issue: ", error))
+
+        axios.get("http://localhost:8000/api/presidents")
+            .then(response => setPresidents((response.data)))
+            .catch(error => console.log("There was an issue: ", error))
+
+        axios.get("http://localhost:8000/api/official/getById/1234")
+            .then(response => setUser((response.data)))
+            .catch(error => console.log("There was an issue: ", error))
+    }, [])
+
 
     const StartHandler = e => {
         setStartVoting(false);
         displayLegislative();
-        progressBar(0);
     };
 
     const legislativeVoteHandler= e => {
         const confirmWindow = window.confirm("Are you sure you want to vote for " + e.target.value + "?");
         if (confirmWindow) {
+            const eValue = e.target.value.split(",")
+            user[0].legislativeVote.candidate = eValue[0];
+            user[0].legislativeVote.partyList = eValue[1];
             setLegislativeVote(e.target.value);
         }
+        else
+            e.target.checked = false
     };
 
     const presidentialVoteHandler= e => {
         const confirmWindow = window.confirm("Are you sure you want to vote for " + e.target.value + "?");
         if (confirmWindow) {
+            const eValue = e.target.value.split(",")
+            user[0].presidentialVote.candidate = eValue[0];
+            user[0].presidentialVote.partyList = eValue[1];
             setPresidentialVote(e.target.value);
         }
+        else
+            e.target.checked = false
     };
 
     const hideOptions = () => {
@@ -47,7 +76,28 @@ const CreateVote = () => {
         setShowPresidential(true);
     };
 
-    const displayConfirmation = () => {
+    const confirmHandler = e => {
+        e.preventDefault();
+        console.log(user)
+        axios.put("http://localhost:8000/api/official/edit/60348153e1d8a8465855477b", {
+            firstName:user[0].firstName,
+            lastName:user[0].lastName,
+            ID:user[0].ID,
+            registrationNumber:user[0].registrationNumber,
+            gender:user[0].gender,
+            district:user[0].district,
+            legislativeVote:{
+                candidate:user[0].legislativeVote.candidate,
+                partyList:user[0].legislativeVote.partyList,
+            },
+            presidentialVote:{
+                candidate:user[0].presidentialVote.candidate,
+                partyList:user[0].presidentialVote.partyList,
+            }
+        })
+            .then(response => setUpdatedUser((response.data)))
+            .catch(error => console.log("There was an issue: ", error))
+
         setStartVoting(false)
         setShowLegislative(false);
         setShowPresidential(false)
@@ -73,7 +123,7 @@ const CreateVote = () => {
                 startVoting ?
                     <>
                         <div style={{height:"225px"}}/>
-                        <p style={{height:"300px"}}>Please click the Start, to begin your voting process</p>
+                        <p style={{height:"300px"}}>Please click the Start button, to begin your voting process...</p>
                         <Button variant="success" size="lg" onClick={StartHandler}>Start!</Button>
                     </>
                 : ''
@@ -83,77 +133,28 @@ const CreateVote = () => {
                     <>
                         <Container fluid  onChange={legislativeVoteHandler}>
                             <h5>Legislative Elections</h5>
-                            <h5>Electoral District: Jerusalem</h5>
+                            <h5>Electoral District: {user[0].district}</h5>
                             <h5>Please make one selection:</h5>
                             <Table striped bordered hover>
                                 <thead>
                                 <tr>
                                     <th>Select</th>
                                     <th>Candidate Name</th>
-                                    <th>Part List Name</th>
+                                    <th>Party List Name</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ammar Banner</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ahmad Zagyer</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Independent" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Tareq Aljamal</td>
-                                    <td style={{textAlign:"center"}}>Independent</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Fatah movement" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Kamal Nouri</td>
-                                    <td style={{textAlign:"center"}}>Fatah movement</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ammar Banner</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ahmad Zagyer</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Independent" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Tareq Aljamal</td>
-                                    <td style={{textAlign:"center"}}>Independent</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Fatah movement" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Kamal Nouri</td>
-                                    <td style={{textAlign:"center"}}>Fatah movement</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ammar Banner</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ahmad Zagyer</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Independent" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Tareq Aljamal</td>
-                                    <td style={{textAlign:"center"}}>Independent</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Fatah movement" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Kamal Nouri</td>
-                                    <td style={{textAlign:"center"}}>Fatah movement</td>
-                                </tr>
+                                {
+                                    partyLists.map((party, index) => {
+                                        return(
+                                            <tr key={index}>
+                                                <td style={{textAlign:"center"}}><input type="radio" value={[party.candidateName, party.listName]} autoFocus/></td>
+                                                <td style={{textAlign:"center"}}>{party.candidateName}</td>
+                                                <td style={{textAlign:"center"}}>{party.listName}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                                 </tbody>
                             </Table>
                     </Container>
@@ -166,7 +167,7 @@ const CreateVote = () => {
                     <>
                         <Container onChange={presidentialVoteHandler}>
                             <h5>Presidential Elections</h5>
-                            <h5>Electoral District: Jerusalem</h5>
+                            <h5>Electoral District: {user[0].district}</h5>
                             <h5>Please make one selection:</h5>
                             <Table striped bordered hover>
                                 <thead>
@@ -177,55 +178,21 @@ const CreateVote = () => {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ammar Banner</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ahmad Zagyer</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Independent" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Tareq Aljamal</td>
-                                    <td style={{textAlign:"center"}}>Independent</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Fatah movement" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Kamal Nouri</td>
-                                    <td style={{textAlign:"center"}}>Fatah movement</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ammar Banner</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ahmad Zagyer</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Independent" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Tareq Aljamal</td>
-                                    <td style={{textAlign:"center"}}>Independent</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Fatah movement" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Kamal Nouri</td>
-                                    <td style={{textAlign:"center"}}>Fatah movement</td>
-                                </tr>
-                                <tr>
-                                    <td style={{textAlign:"center"}}><input type="radio" value="Change And Reform" name="userChoice" autoFocus/></td>
-                                    <td style={{textAlign:"center"}}>Ammar Banner</td>
-                                    <td style={{textAlign:"center"}}>Change and Reform</td>
-                                </tr>
+                                {
+                                    presidents.map((president, index) => {
+                                        return(
+                                            <tr key={index}>
+                                                <td style={{textAlign:"center"}}><input type="radio" value={[president.candidateName, president.listName]} autoFocus/></td>
+                                                <td style={{textAlign:"center"}}>{president.candidateName}</td>
+                                                <td style={{textAlign:"center"}}>{president.listName}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                                 </tbody>
                             </Table>
                         </Container>
-                        <Button variant="danger" size="lg" onClick={displayLegislative}>Previous</Button> <Button variant="primary" size="lg" onClick={displayConfirmation} disabled={!legislativeVote || !presidentialVote}>Confirm</Button>
+                        <Button variant="danger" size="lg" onClick={displayLegislative}>Previous</Button> <Button variant="primary" size="lg" onClick={confirmHandler} disabled={!legislativeVote || !presidentialVote}>Confirm</Button>
                     </>
                     : ''
             }
