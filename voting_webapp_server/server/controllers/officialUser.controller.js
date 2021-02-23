@@ -56,7 +56,7 @@ module.exports.findLegislativeVoteParty = (request, response) => {
             .catch(err => response.json(err))
     };
 module.exports.findpresidentialVoteCandy = (request, response) => {
-    OfficialUser.find({'presidentialVote.partyList': request.params.partyList })
+    OfficialUser.find({'presidentialVote.candidate': request.params.candidate })
             .then(allOfficialUser => response.json(allOfficialUser))
             .catch(err => response.json(err))
     };

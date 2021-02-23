@@ -5,7 +5,7 @@ import CreateVote from "./components/CreateVote/CreateVote";
 function App() {
     return (
         <div className="App">
-        <CreateVote/>
+        <Main/>
         </div>
     );
 }

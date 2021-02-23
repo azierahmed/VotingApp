@@ -1,13 +1,14 @@
-import {useState} from "react";
+import {useState,useEffect} from "react";
 import {Radar,Pie,Bar} from 'react-chartjs-2';
 import Admin from "./Admin";
+import axios from "axios";
 
 export default props => {
     const [lab,setlab]=useState("");
     const [data,setdata]=useState({
-    labels:['Tareq', 'Ammar', 'Ahmad', 'Amr'],
+    labels:['Tareq'],
 	datasets: [{
-		data: [4527, 1578, 3009, 105],
+		data: [4527],
 		backgroundColor: ['rgba(255,0,0,0.4)','rgba(0,0,255,0.4)','rgba(255,0,255,0.4)','rgba(0,0,0,.4)'],
 		hoverBackgroundColor: [
 		'#FF6384',
@@ -16,7 +17,40 @@ export default props => {
 		]
 	}]});
     var arr=[];
+
+    const [cands,setcands]=useState([]);
+    const [loaded,setloaded]=useState(false);
+    const [votes,setvotes]=useState();
+    useEffect(() => {
+    axios.get("http://localhost:8000/api/presidents")
+            .then(response => setcands(response.data))
+            .then(()=>{
+                console.log(presidents)
+                cands.map((name)=>{
+                    axios.get("http://localhost:8000/api/official/pres/candidate/"+name)
+                    .then(response=>votes.add(response.data.length))
+                    .catch(err=> console.log("There was an issue: ", err))
+                })}
+            )
+            .catch(error => console.log("There was an issue: ", error))
+    }, [data])
     
+    
+    console.log(cands)
+    const presidents=[]
+    if(cands!=null)(
+    cands.map((cand, index) => presidents.push(cand.candidateName))
+    )
+    console.log(presidents)
+    const test=[]
+    presidents.map((president)=>
+    axios.get("http://localhost:8000/api/official/pres/candidate/"+president)
+    .then(response=>test.push(response.data.length))
+    .catch(err=> console.log("There was an issue: ", err))
+    )
+    console.log("this is test :",test)
+
+
     for(var j=0;j<4;j++){var arr2=[];
         for(var i=0;i<4;i++){
         var rand =(Math.random()*(1000));
@@ -24,12 +58,11 @@ export default props => {
         }
         arr.push(arr2)
     }
-    console.log(arr)
 
 
 
-    const [pdata,setpdata]=useState({
-        labels:['Tareq', 'Ammar', 'Ahmad', 'Amr'],
+    const [bardata,setpbardata]=useState({
+        labels:presidents,
         datasets: [
             {
             label: 'My First dataset',
@@ -38,7 +71,7 @@ export default props => {
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [4527, 1578, 3009, 105]
+            data: test
             }
         ]
     });
@@ -117,7 +150,7 @@ export default props => {
                     
                 </div>
                 <div style={{display:"block",width:600,height:400}}>
-                    <Bar data={pdata}/>
+                    <Bar data={bardata}/>
                     
                 </div>
                 
