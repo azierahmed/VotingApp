@@ -10,14 +10,14 @@ import Cookies from 'universal-cookie';
 function Main() {
     const cookies = new Cookies();
     return (
-    <div className="App">
+    <>
     <Router>
         <Presidential path="/presidential"/>
         <Region path="/legislative/region/:nt"/>
         <Party path="/legislative/party/:nt"/>
         <Users path="/users"/>
     </Router>
-    </div>
+    </>
     );
     
 }
