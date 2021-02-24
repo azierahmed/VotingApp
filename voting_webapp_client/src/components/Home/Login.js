@@ -31,7 +31,7 @@ const styles = {
 
 const Login = (props) => {
 
-    const [idNumber, setidNumber] = useState("");
+    const [ID, setID] = useState("");
     const [password, setpassword] = useState("");
     const cookies = new Cookies();
 
@@ -39,17 +39,18 @@ const Login = (props) => {
     const onSubmitHandler = e => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/login', {
-            idNumber,
+            ID,
             password
         })
         .then(res=> {
             cookies.set("cookies1", res.data.user);
             console.log(cookies.get("cookies1"));
-            props.x();
+            navigate('/valid');
+            props.rerender();
             // props.userId(res.data.user._id)
         })
         .catch(err=>console.log(err))
-        navigate('/valid');
+        
     }
 
     console.log(cookies.get("cookies1"));
@@ -57,6 +58,7 @@ const Login = (props) => {
         
         <div className="main">
             <div className="header">
+            <Header />
             </div>
             <center>
                 <Paper elevation={20} style={styles.paper}>
@@ -67,7 +69,7 @@ const Login = (props) => {
                     <form onSubmit={onSubmitHandler}><br />
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel><PersonBadge/> ID Number:</InputLabel>
-                            <OutlinedInput type="text" onChange={(e)=>setidNumber(e.target.value)} value={idNumber}/>
+                            <OutlinedInput type="text" onChange={(e)=>setID(e.target.value)} value={ID}/>
                         </FormControl>
 
                         <FormControl variant="outlined" style={styles.input}>
@@ -87,7 +89,7 @@ const Login = (props) => {
                 </Paper>
             </center><br/>
             <div>
-            
+                <Footer/>
             </div>
         </div>
     )

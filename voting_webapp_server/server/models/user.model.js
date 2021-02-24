@@ -15,17 +15,17 @@ const UserSchema = new mongoose.Schema({
     ID: {
         type: Number,
         required: [true, "ID is required"],
-        min: [10, "ID must be at 10 numbers long"]
+        min: [2, "ID must be at 10 numbers long"]
     },
     registrationNumber: {
         type: Number,
         required: [true, "Registration Number is required"],
-        min: [6, "Registration Number must be at 6 numbers long"]
+        min: [2, "Registration Number must be at 6 numbers long"]
     },
     phoneNumber: {
         type: Number,
         required: [true, "Phone Number is required"],
-        min: [10, "Phone Number must be at 7 numbers long"]
+        min: [2, "Phone Number must be at 7 numbers long"]
     },
     email: {
         type: String,
@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "Password is required"],
-        minlength: [8, "Password must be 8 characters or longer"]
+        minlength: [2, "Password must be 8 characters or longer"]
     },
     logged: false,
     admin: false

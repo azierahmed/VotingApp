@@ -6,15 +6,7 @@ import Footer from '../Home/Footer';
 import Header from '../Home/Header';
 import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
-
-useEffect(()=>{
-    setLogged(true)
-}, [logged])
-
-
-console.log(props.userId)
-const CreateVote = () => {
+const CreateVote = props => {
     const [startVoting, setStartVoting] = useState(true)
     const [legislativeVote, setLegislativeVote] = useState('')
     const [showLegislative, setShowLegislative] = useState(false)
@@ -25,6 +17,10 @@ const CreateVote = () => {
     const [partyLists, setPartyLists] = useState([])
     const [presidents, setPresidents] = useState([])
     const [updatedUser,setUpdatedUser] = useState("")
+    const [logged,setLogged] = useState("")
+
+
+    const cookies = new Cookies();
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/parties")
@@ -38,6 +34,7 @@ const CreateVote = () => {
         axios.get("http://localhost:8000/api/official/getById/1234")
             .then(response => setUser((response.data)))
             .catch(error => console.log("There was an issue: ", error))
+            
     }, [])
 
 

@@ -1,5 +1,8 @@
 const User = require("../models/user.model");
 
+// const { User } = require('../models/user.model');
+const jwt = require("jsonwebtoken");
+const bcrypt = require ('bcrypt');
 module.exports.register = (req, res) => {
     User.create(req.body)
     .then(user => {
@@ -19,7 +22,7 @@ module.exports.register = (req, res) => {
 }
 
 module.exports.login = async(req, res) => {
-    const user = await User.findOne({ idNumber: req.body.idNumber });
+    const user = await User.findOne({ ID: req.body.ID });
     
     if(user === null) {
         // email not found in users collection
