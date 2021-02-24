@@ -131,7 +131,7 @@ const CreateVote = () => {
             {
                 showLegislative ?
                     <>
-                        <Container fluid  onChange={legislativeVoteHandler}>
+                        <Container fluid>
                             <h5>Legislative Elections</h5>
                             <h5>Electoral District: {user[0].district}</h5>
                             <h5>Please make one selection:</h5>
@@ -147,8 +147,8 @@ const CreateVote = () => {
                                 {
                                     partyLists.map((party, index) => {
                                         return(
-                                            <tr key={index}>
-                                                <td style={{textAlign:"center"}}><input type="radio" value={[party.candidateName, party.listName]} autoFocus/></td>
+                                            <tr key={index} onChange={legislativeVoteHandler}>
+                                                <td style={{textAlign:"center"}}><input type="radio" value={[party.candidateName, party.listName]} name={"legislativeChoice"} autoFocus/></td>
                                                 <td style={{textAlign:"center"}}>{party.candidateName}</td>
                                                 <td style={{textAlign:"center"}}>{party.listName}</td>
                                             </tr>
@@ -165,7 +165,7 @@ const CreateVote = () => {
             {
                 showPresidential ?
                     <>
-                        <Container onChange={presidentialVoteHandler}>
+                        <Container>
                             <h5>Presidential Elections</h5>
                             <h5>Electoral District: {user[0].district}</h5>
                             <h5>Please make one selection:</h5>
@@ -181,8 +181,8 @@ const CreateVote = () => {
                                 {
                                     presidents.map((president, index) => {
                                         return(
-                                            <tr key={index}>
-                                                <td style={{textAlign:"center"}}><input type="radio" value={[president.candidateName, president.listName]} autoFocus/></td>
+                                            <tr key={index} onChange={presidentialVoteHandler}>
+                                                <td style={{textAlign:"center"}}><input type="radio" value={[president.candidateName, president.listName]} name={"presidentChoice"} autoFocus/></td>
                                                 <td style={{textAlign:"center"}}>{president.candidateName}</td>
                                                 <td style={{textAlign:"center"}}>{president.listName}</td>
                                             </tr>
