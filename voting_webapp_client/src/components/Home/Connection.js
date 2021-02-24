@@ -26,7 +26,7 @@ function Connection(props) {
 
     return (
         <>
-        { (!cookie) ? <> <Login x={rerender} /> </> : <CreateVote />}
+        { (!cookie) ? <> <Login x={rerender} /> </> : <CreateVote userId={cookie} />}
         </>
     );
 }

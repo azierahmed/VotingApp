@@ -11,3 +11,161 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.footer{
+  background-color: rgb(36, 36, 36);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+
+
+.footer .one{
+  display:flex;
+  padding: 4rem;
+  background-color: rgb(36, 36, 36);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+  text-align: center;
+}
+
+.logopic1 {
+  margin-right: 55px ;
+  width: 70px;
+  text-align:center;
+}
+
+.links ul{
+  color: black;
+  list-style:none;
+  text-align:left;
+
+}
+
+
+.links a{
+  color: rgb(194, 194, 194);
+  text-align:left;
+  text-decoration:none;
+
+}
+
+.links{
+  display: flex;  
+
+}
+
+.contact ul{
+  display: block;
+  list-style:none;
+  text-align:left;
+
+}
+
+.contact a{
+  color: rgb(194, 194, 194);
+  text-decoration:none;
+  text-align:left;
+
+
+}
+
+.footer h3{
+  color: rgb(231, 227, 227);
+  text-align:left;
+
+}
+
+.contact li{
+  margin-right: 50px;
+}
+.logopic p{
+  color: rgb(83, 81, 81);
+  text-align: center;
+  margin-top: 50px;  
+  margin-right: 60px;
+}
+
+.logopic{
+  margin-top: 50px;
+}
+
+
+.mainpage{
+  background-color: #f5f5f5;
+}
+
+
+
+.card1{
+  display: flex;
+  justify-content:center;
+  
+}
+
+
+.main{
+  background-color: #f5f5f5;
+}
+
+.hr1{
+  border-radius: 20px;
+  width:80%;
+  border-bottom-style: solid;
+  color: black;
+  
+}
+
+
+.media video{
+  width: 80%;
+  height: 500px;
+}
+
+.media {
+  justify-content:center;
+}
+
+
+
+h2{
+  font-size: 2rem;
+  font-family: inherit;
+  color: #8d8b8b;
+
+}
+
+.marketing h2{
+  font-weight: 400;
+  font-family: inherit;
+
+}
+
+
+.fisrtpic img{
+  width:80%;
+}
+
+
+.votepage{
+  background-color: #f5f5f5;
+}
+
+.h1vote{
+  font-size:35px;
+  color:rgb(82, 81, 81)
+}
+
+

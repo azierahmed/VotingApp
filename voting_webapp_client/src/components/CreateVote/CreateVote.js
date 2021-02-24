@@ -2,8 +2,18 @@ import React, {useEffect, useState} from "react";
 import {Button, Container, ProgressBar, Table} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
+import Footer from '../Home/Footer';
+import Header from '../Home/Header';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+
+useEffect(()=>{
+    setLogged(true)
+}, [logged])
 
 
+console.log(props.userId)
 const CreateVote = () => {
     const [startVoting, setStartVoting] = useState(true)
     const [legislativeVote, setLegislativeVote] = useState('')
@@ -117,6 +127,7 @@ const CreateVote = () => {
 
     return(
         <Container>
+        <Header />
             <h1>Welcome to  Central Elections Commission Electronic Voting System</h1>
             <ProgressBar animated now={progressBar()} label={`${progressBar()}%`} />
             {
@@ -204,6 +215,8 @@ const CreateVote = () => {
                     </Container>
                     : ''
             }
+            <br/><br/>
+            <Footer/>
         </Container>
     )
 };
