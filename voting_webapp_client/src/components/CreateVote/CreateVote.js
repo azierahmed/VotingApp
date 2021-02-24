@@ -174,7 +174,7 @@ const CreateVote = () => {
                                 <tr>
                                     <th>Select</th>
                                     <th>Candidate Name</th>
-                                    <th>Part List Name</th>
+                                    <th>Party List Name</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -199,9 +199,8 @@ const CreateVote = () => {
             {
                 endVoting ?
                     <Container>
+                        <br/>
                         <h3>Thank you for voting!</h3>
-                        <p>You have voted for {legislativeVote} in the Legislative Race</p>
-                        <p>You have voted for {presidentialVote} in the Presidential Race</p>
                     </Container>
                     : ''
             }
