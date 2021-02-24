@@ -4,8 +4,6 @@ import { Link, navigate } from "@reach/router";
 import logo from '../../assets/logo.png';
 import {PersonFill, CardHeading, ArchiveFill, TelephoneFill, EnvelopeFill, GeoAltFill, LockFill} from 'react-bootstrap-icons';
 import axios from 'axios';
-import Footer from './Footer';
-import Header from './Header';
 const Cookie = require("universal-cookie");
 
 
@@ -55,9 +53,6 @@ export default function LoginForm(props) {
 
     return (
         <div className="main">
-            <div className="header">
-            <Header/>
-            </div>
             <center>
                 <Paper elevation={20} style={styles.paper}>
                     <>
@@ -109,7 +104,6 @@ export default function LoginForm(props) {
                     </p>
                 </Paper><br /><br /><br /><br /><br />
             </center>
-            <Footer/>
         </div>
     )
 }

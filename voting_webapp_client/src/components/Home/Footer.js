@@ -1,9 +1,8 @@
 import React from 'react'
-import {Paper, FormControl, InputLabel, OutlinedInput, Button } from '@material-ui/core';
-import { Router, Link } from "@reach/router";
 import logo from '../../assets/logo.png';
 import { Facebook, Twitter, Instagram, ChatLeftText, CalendarEvent, SortNumericUpAlt} from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Footer = () => {
     return (
         <center>

@@ -3,20 +3,19 @@ import Presidential from './Presidential'
 import Region from "./Region"
 import Party from "./Party"
 import Users from "./Users"
+import Cookies from 'universal-cookie';
 
 
 
 function Main() {
-    
-
-    navigate("/admin/presidential")
+    const cookies = new Cookies();
     return (
     <div className="App">
     <Router>
-        <Presidential path="/admin/presidential"/>
-        <Region path="/admin/legislative/region/:nt"/>
-        <Party path="/admin/legislative/party/:nt"/>
-        <Users path="/admin/users"/>
+        <Presidential path="/presidential"/>
+        <Region path="/legislative/region/:nt"/>
+        <Party path="/legislative/party/:nt"/>
+        <Users path="/users"/>
     </Router>
     </div>
     );

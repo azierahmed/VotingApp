@@ -1,26 +1,18 @@
 import React from 'react'
-import { ArrowLeft, ArrowRight, AlarmFill, ArchiveFill } from 'react-bootstrap-icons';
+import { ArchiveFill } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button, iframe } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Header';
-import Footer from './Footer';
-import four from '../../assets/four.jpg';
 import video1 from '../../assets/video1.mp4';
 import vote3 from '../../assets/vote3.png';
 import vote5 from '../../assets/vote5.jpg';
 import vote6 from '../../assets/vote6.jpg';
 import vote9 from '../../assets/vote9.jpg';
 
-import { Link } from "@reach/router";
 const MainPage = () => {
 
 
     return (
         <div className="main">
-            <div className="header">
-            <Header/>
-            </div>
             <div className="mainpage"><br />
 
                 <div className="fisrtpic">
@@ -72,9 +64,6 @@ const MainPage = () => {
                 </div><br />
                 <br />
                 
-                        </div>
-                        <div>
-                        <Footer/>
                         </div>
                     </div>
     )

@@ -3,7 +3,7 @@ import { Nav , Navbar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logoele1 from '../../assets/logoele1.png';
 
-const Header = () => {
+const Header = props => {
     const styles = {
         img: {
             width: "350px",
@@ -23,11 +23,18 @@ const Header = () => {
                         <Nav.Link href="/valid">Voting</Nav.Link>
                         <Nav.Link href="/admin/presidential">Admin</Nav.Link>
                     </Nav>
-                    <Nav>
-                        <Nav.Link href="/login">Login</Nav.Link>
-                        <Nav.Link> | </Nav.Link>
-                        <Nav.Link eventKey={2} href="/register">Register</Nav.Link>
-                    </Nav>
+                    {
+                        props.userId ?
+                            <Nav>
+                                <Nav.Link href="#">Profile Page</Nav.Link>
+                            </Nav>
+                            :                       <Nav>
+                                <Nav.Link href="/login">Login</Nav.Link>
+                                <Nav.Link> | </Nav.Link>
+                                <Nav.Link eventKey={2} href="/register">Register</Nav.Link>
+                            </Nav>
+                    }
+
                 </Navbar.Collapse>
             </Navbar>
         </div>

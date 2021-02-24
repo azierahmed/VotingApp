@@ -2,8 +2,6 @@ import React, {useEffect, useState} from "react";
 import {Button, Container, ProgressBar, Table} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
-import Footer from '../Home/Footer';
-import Header from '../Home/Header';
 import Cookies from 'universal-cookie';
 
 const CreateVote = props => {
@@ -17,7 +15,6 @@ const CreateVote = props => {
     const [partyLists, setPartyLists] = useState([])
     const [presidents, setPresidents] = useState([])
     const [updatedUser,setUpdatedUser] = useState("")
-    const [logged,setLogged] = useState("")
 
 
     const cookies = new Cookies();
@@ -31,12 +28,11 @@ const CreateVote = props => {
             .then(response => setPresidents((response.data)))
             .catch(error => console.log("There was an issue: ", error))
 
-        axios.get("http://localhost:8000/api/official/getById/1234")
+        axios.get("http://localhost:8000/api/official/getById/" + props.userId.ID)
             .then(response => setUser((response.data)))
             .catch(error => console.log("There was an issue: ", error))
             
     }, [])
-
 
     const StartHandler = e => {
         setStartVoting(false);
@@ -85,7 +81,6 @@ const CreateVote = props => {
 
     const confirmHandler = e => {
         e.preventDefault();
-        console.log(user)
         axios.put("http://localhost:8000/api/official/edit/60348153e1d8a8465855477b", {
             firstName:user[0].firstName,
             lastName:user[0].lastName,
@@ -123,8 +118,8 @@ const CreateVote = props => {
     };
 
     return(
-        <Container>
-        <Header />
+        <Container fluid>
+            <br/>
             <h1>Welcome to  Central Elections Commission Electronic Voting System</h1>
             <ProgressBar animated now={progressBar()} label={`${progressBar()}%`} />
             {
@@ -212,8 +207,8 @@ const CreateVote = props => {
                     </Container>
                     : ''
             }
-            <br/><br/>
-            <Footer/>
+            <br/>
+            <br/>
         </Container>
     )
 };

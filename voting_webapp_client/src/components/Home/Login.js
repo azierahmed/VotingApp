@@ -3,15 +3,13 @@ import { Paper, FormControl, InputLabel, OutlinedInput, Button , CardContent, Ca
 import logo from '../../assets/logo.png';
 import {PersonBadge, FileLock2 } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Header';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import { navigate, Link, Redirect } from '@reach/router';
-import Footer from './Footer';
 
 const styles = {
     paper: {
-        width: "20rem", padding: "3rem", margin: "5rem"
+        width: "20rem", padding: "3rem", margin: "2rem"
     },
     input: {
         marginBottom: "1rem"
@@ -57,9 +55,6 @@ const Login = (props) => {
     return (
         
         <div className="main">
-            <div className="header">
-            <Header />
-            </div>
             <center>
                 <Paper elevation={20} style={styles.paper}>
                     <>
@@ -88,9 +83,6 @@ const Login = (props) => {
                     
                 </Paper>
             </center><br/>
-            <div>
-                <Footer/>
-            </div>
         </div>
     )
 }

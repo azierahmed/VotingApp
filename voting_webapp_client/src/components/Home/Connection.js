@@ -1,7 +1,4 @@
 import React from 'react';
-import Register from './Register';
-import { Router } from "@reach/router";
-import MainPage from './MainPage';
 import Cookies from 'universal-cookie';
 import {useState, useEffect} from 'react';
 import CreateVote from '../CreateVote/CreateVote'
