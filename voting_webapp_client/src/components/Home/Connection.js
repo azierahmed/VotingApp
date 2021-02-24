@@ -8,25 +8,20 @@ import CreateVote from '../CreateVote/CreateVote'
 import Login from './Login';
 
 function Connection(props) {
-    const [logged, setLogged] = useState(false)
-
+    const cookies = new Cookies();
     const [cookie, setCookie] = useState(null);
     useEffect(() => {
         setCookie(cookies.get("cookies1"))
-    }, [cookie])
-    const cookies = new Cookies();
+    }, [])
+    
     const rerender = () => {
         setCookie(cookies.get("cookies1"));
+        console.log("sdhgsjkdhgsjd");
     }
-
-    
-    useEffect(()=>{
-        setLogged(true)
-    }, [logged])
 
     return (
         <>
-        { (!cookie) ? <> <Login x={rerender} /> </> : <CreateVote userId={cookie} />}
+        { (!cookie) ? <> <Login rerender={rerender} /> </> : <CreateVote userId={cookie} />}
         </>
     );
 }

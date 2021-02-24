@@ -29,22 +29,20 @@ const styles = {
 export default function LoginForm(props) {
     const [firstName, setFirstName] = useState(""); 
     const [lastName, setLastName] = useState("");
-    const [idNumber, setidNumber] = useState("");
-    const [regNumber, setregNumber] = useState("");
+    const [ID, setID] = useState("");
+    const [registrationNumber, setregistrationNumber] = useState("");
     const [phoneNumber, setphoneNumber] = useState("");
-    const [Location, setLocation] = useState("");
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/register', {
+        axios.post('http://localhost:8000/api/user/new', {
             firstName,
             lastName,
-            idNumber,
-            regNumber,
+            ID,
+            registrationNumber,
             phoneNumber,
-            Location,
             email,
             password
         })
@@ -79,17 +77,12 @@ export default function LoginForm(props) {
 
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel ><CardHeading /> ID Number:</InputLabel>
-                            <OutlinedInput type="number" onChange={(e)=>setidNumber(e.target.value)} value={idNumber}/>
+                            <OutlinedInput type="number" onChange={(e)=>setID(e.target.value)} value={ID}/>
                         </FormControl>
 
                         <FormControl variant="outlined" style={styles.input}>
                             <InputLabel ><ArchiveFill /> Registration number:</InputLabel>
-                            <OutlinedInput type="text" onChange={(e)=>setregNumber(e.target.value)} value={regNumber}/>
-                        </FormControl>
-
-                        <FormControl variant="outlined" style={styles.input}>
-                            <InputLabel ><GeoAltFill /> Location</InputLabel>
-                            <OutlinedInput type="text" onChange={(e)=>setLocation(e.target.value)} value={Location}/>
+                            <OutlinedInput type="text" onChange={(e)=>setregistrationNumber(e.target.value)} value={registrationNumber}/>
                         </FormControl>
 
                         <FormControl variant="outlined" style={styles.input}>
