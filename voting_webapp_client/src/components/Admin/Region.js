@@ -88,7 +88,6 @@ export default props => {
 
     return(
         <div>
-        <Admin/>
         <Legislative/>
         <div>
             <select onChange={town} id="Town" value={townname} >

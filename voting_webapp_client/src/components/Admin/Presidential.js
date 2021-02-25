@@ -2,6 +2,23 @@ import {useState,useEffect} from "react";
 import {Radar,Pie,Bar} from 'react-chartjs-2';
 import Admin from "./Admin";
 import axios from "axios";
+import { Paper } from '@material-ui/core';
+
+
+
+
+
+const styles = {
+    paper: {
+        width: "100%", padding: "1rem", marginleft: "1rem",
+    }
+
+}
+
+
+
+
+
 
 export default props => {
     const [lab,setlab]=useState("");
@@ -143,9 +160,9 @@ export default props => {
 
     return(
         <div>
-        <Admin/>
+        <Paper elevation={10} style={styles.paper}>
             <center style={{display:"flex"}}>
-                <div style={{display:"block",width:600,height:400,marginRight:100,marginLeft:50}}>
+                <div style={{display:"block",width:600,height:400}}>
                     <Pie data={data}/>
                     
                 </div>
@@ -153,24 +170,37 @@ export default props => {
                     <Bar data={bardata}/>
                     
                 </div>
-                
             </center>
-            <div style={{display:"inline-block",width:1500}}>
-                <div style={{width:600,display:"inline-block"}}>
-                    <Radar data={data1}/>
-                </div>
-                <div style={{width:600,display:"inline-block"}}>
+            </Paper><br/> <br/><br/><br/>
+            <div className="picPaper" style={{}}>
+            <div className="Radar1" >
+                <Paper className="paper000">
+                    <div style={{width:600,display:"flex"}}>
+                        <Radar data={data1}/>
+                    </div>
+                </Paper>
+                <Paper className="paper000">
+                    <div style={{width:600,display:"flex"}}>
 
-                    <Radar data={data2}/>
-                </div>
-                <div style={{width:600,display:"inline-block"}}>
+                        <Radar data={data2}/>
+                    </div>
+                </Paper>
+                </div><br/>
 
-                    <Radar data={data3}/>
-                </div>
-                <div style={{width:600,display:"inline-block"}}>
+                <div className="Radar2" >
+                <Paper className="paper000">
+                    <div style={{width:600,display:"inline-block"}}>
 
-                    <Radar data={data4}/>
-                </div>
+                        <Radar data={data3}/>
+                    </div>
+                </Paper>
+                <Paper className="paper000">
+                    <div style={{width:600,display:"inline-block"}}>
+
+                        <Radar data={data4}/>
+                    </div>
+                </Paper>
+            </div><br/><br/>
             </div>
             
         </div>

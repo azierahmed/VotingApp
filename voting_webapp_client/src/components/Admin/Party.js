@@ -89,7 +89,6 @@ export default props => {
     const partys=['bashar','ISIS','Nusra','FreeArmy','Russia']
     return(
         <div>
-        <Admin/>
         <Legislative/>
         <div>
             <select onChange={town} id="Party" value={partyname} >
