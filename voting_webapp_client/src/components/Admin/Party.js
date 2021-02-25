@@ -10,7 +10,7 @@ export default props => {
     var arr=[];
     var sum=0;
     for(var i=0;i<5;i++){
-        var rand =(Math.random() * (1000));
+        var rand =(Math.random() * (20));
         arr.push(rand)
         sum+=parseInt(rand)
     }
@@ -34,7 +34,7 @@ export default props => {
     });
 
     const [gender,setgender]=useState({
-        labels: ['mail','femail'],
+        labels: ['Male','Female'],
         datasets: [{
             data: [mail, 100-mail],
             backgroundColor: [
@@ -51,7 +51,7 @@ export default props => {
     
     useEffect(()=>{
         setgender(
-            {labels:['mail','femail'],
+            {labels:['male','female'],
             datasets:[{
                 data: [mail, 100-mail],
                 backgroundColor: [
@@ -86,7 +86,7 @@ export default props => {
         navigate("/admin/legislative/party/"+name.value)
     }
 
-    const partys=['bashar','ISIS','Nusra','FreeArmy','Russia']
+    const partys=['Reform and Change','Fatah','Indep','PLO']
     return(
         <div>
         <Legislative/>
@@ -104,12 +104,11 @@ export default props => {
             <div style={{display:"flex"}}>
                 <div style={{display:"block",width:600,height:400,marginRight:100,marginLeft:50}}>
                     <Bar data={data}/>
-                    <h4>Total Votes: {sum}</h4>
                     
                 </div>
                 <div style={{display:"block",width:600,height:400}}>
                     <Pie data={gender}/>
-                    <h4>{parseInt(sum*mail/100)}  /  {parseInt(sum*(100-mail)/100)}</h4>
+
                 </div>
             </div>
         </div>
