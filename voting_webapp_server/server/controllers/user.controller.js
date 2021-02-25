@@ -58,7 +58,7 @@ module.exports.findAllUsers = (request, response) => {
 };
 
 module.exports.findUser = (request, response) => {
-    User.find({_id: request.params.id})
+    User.findOne({_id: request.params.id})
         .then(foundUser => response.json(foundUser))
         .catch(err => response.json(err))
 };
@@ -82,6 +82,6 @@ module.exports.findAllLoggedUser = (request, response) => {
 };
 
 module.exports.logout = (req, res) => {
-    res.clearCookie('usertoken');
+    res.clearCookie('cookies1');
     res.sendStatus(200);
 }

@@ -1,12 +1,13 @@
-
-import { Link } from "@reach/router"
-
+import React from 'react';
+import { Nav , Navbar, Link } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default props => {
 
     return(
-        <div>
-        <Link to="/admin/legislative/region/Jerusalem">Region</Link>   |  <Link to="/admin/legislative/party/Bashar">Party</Link>
+        <div><br/>
+            <a class="btn btn-primary" href="/admin/legislative/region/Jerusalem" role="button">Region</a> <>  </> <a class="btn btn-primary" href="/admin/legislative/party/Bashar" role="button">Party</a><br/>
+            <br/>
         </div>
     )
 }

@@ -11,7 +11,7 @@ export default props => {
     
     return(
         <div>
-        <Link to="/admin/presidential">Presidential</Link>   |  <Link to="/admin/legislative/region/Jerusalem">Legislative</Link> | <Link to="/admin/users">Users</Link>
+        {/* <Link to="/admin/presidential">Presidential</Link>   |  <Link to="/admin/legislative/region/Jerusalem">Legislative</Link> | <Link to="/admin/users">Users</Link> */}
             <Router>
             <Presidential path="/admin/presidential"/>
             <Legislative path="/admin/legislative/region/:nt"/>

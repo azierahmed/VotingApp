@@ -120,13 +120,13 @@ const CreateVote = props => {
     return(
         <Container fluid>
             <br/>
-            <h1>Welcome to  Central Elections Commission Electronic Voting System</h1>
+            <h1 className="Welcome123">Welcome to  Central Elections Commission Electronic Voting System</h1>
             <ProgressBar animated now={progressBar()} label={`${progressBar()}%`} />
             {
                 startVoting ?
                     <>
                         <div style={{height:"225px"}}/>
-                        <p style={{height:"300px"}}>Please click the Start button, to begin your voting process...</p>
+                        <p className="p-vote" style={{height:"300px"}}>Please click the Start button, to begin your voting process...</p>
                         <Button variant="success" size="lg" onClick={StartHandler}>Start!</Button>
                     </>
                 : ''

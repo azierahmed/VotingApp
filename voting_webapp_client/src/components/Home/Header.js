@@ -21,14 +21,15 @@ const Header = props => {
                         <Nav.Link href="#contact">Contact Us</Nav.Link>
                         <Nav.Link href="#about">About Us</Nav.Link>
                         <Nav.Link href="/valid">Voting</Nav.Link>
-                        <Nav.Link href="/admin/presidential">Admin</Nav.Link>
                     </Nav>
                     {
                         props.userId ?
                             <Nav>
-                                <Nav.Link href="#">Profile Page</Nav.Link>
+                                <Nav.Link href="/profile">Profile Page</Nav.Link>
+                                <Nav.Link href="#">Welcome, {props.userId.firstName}</Nav.Link>
                             </Nav>
-                            :                       <Nav>
+                            :                       
+                            <Nav>
                                 <Nav.Link href="/login">Login</Nav.Link>
                                 <Nav.Link> | </Nav.Link>
                                 <Nav.Link eventKey={2} href="/register">Register</Nav.Link>

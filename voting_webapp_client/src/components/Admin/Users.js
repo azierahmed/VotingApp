@@ -10,7 +10,6 @@ export default props => {
     const partys=['bashar','ISIS','Nusra','FreeArmy','Russia']
     return(
         <div>
-            <Admin/>
             <div>
             <Table striped bordered hover>
                     <thead>
