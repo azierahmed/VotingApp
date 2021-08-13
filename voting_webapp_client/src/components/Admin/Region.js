@@ -9,13 +9,13 @@ export default props => {
     const townname=props.nt;
     var arr=[];
     for(var i=0;i<5;i++){
-        var rand =(Math.random() * (1000));
+        var rand =(Math.random() * (20));
         arr.push(rand)
     }
     var mail =25+(Math.random() * (100));
 
 
-    var party=['Bshar','ISIS','Nusra','FreeArmy','Russia']
+    var party=['Reform and Change','Fatah','Indep','PLO']
     const [data,setdata]=useState({
         labels:party,
         datasets: [
@@ -32,7 +32,7 @@ export default props => {
     });
 
     const [gender,setgender]=useState({
-        labels: ['mail','femail'],
+        labels: ['male','female'],
         datasets: [{
             data: [mail, 100-mail],
             backgroundColor: [
@@ -49,7 +49,7 @@ export default props => {
     
     useEffect(()=>{
         setgender(
-            {labels:['mail','femail'],
+            {labels:['male','female'],
             datasets:[{
                 data: [mail, 100-mail],
                 backgroundColor: [

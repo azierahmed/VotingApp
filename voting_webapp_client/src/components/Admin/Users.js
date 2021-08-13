@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default props => {
     const [users,setusers]=useState(["Tareq","Ahmad","Mustafa","Ammar","Kahld","David","Amr"])
-    const islogin=[1,0,0,1,1,1,0,0,0]
+    const islogin=[1,0,0,0,0,0,0,0,0]
 
     const partys=['bashar','ISIS','Nusra','FreeArmy','Russia']
     return(

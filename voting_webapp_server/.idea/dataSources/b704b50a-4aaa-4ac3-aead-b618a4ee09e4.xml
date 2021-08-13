@@ -12,15 +12,13 @@
     <schema id="7" parent="1" name="voting_webapp">
       <Current>1</Current>
     </schema>
-    <table id="8" parent="7" name="officialusers"/>
-    <table id="9" parent="7" name="parties"/>
-    <table id="10" parent="7" name="presidents"/>
-    <table id="11" parent="7" name="users"/>
-    <column id="12" parent="8" name="_id">
+    <table id="8" parent="7" name="districts"/>
+    <table id="9" parent="7" name="officialusers"/>
+    <table id="10" parent="7" name="parties"/>
+    <table id="11" parent="7" name="presidents"/>
+    <table id="12" parent="7" name="users"/>
+    <column id="13" parent="8" name="_id">
       <DataType>ObjectId(0)|12s</DataType>
-    </column>
-    <column id="13" parent="8" name="ID">
-      <DataType>Integer|4s</DataType>
     </column>
     <column id="14" parent="8" name="__v">
       <DataType>Integer|4s</DataType>
@@ -28,117 +26,137 @@
     <column id="15" parent="8" name="createdAt">
       <DataType>Date(0)|91s</DataType>
     </column>
-    <column id="16" parent="8" name="presidentialVote">
-      <DataType>map(0)|4999544s</DataType>
-    </column>
-    <column id="17" parent="8" name="updatedAt">
-      <DataType>Date(0)|91s</DataType>
-    </column>
-    <column id="18" parent="8" name="firstName">
+    <column id="16" parent="8" name="districtName">
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="19" parent="8" name="registrationNumber">
+    <column id="17" parent="8" name="population">
       <DataType>Integer|4s</DataType>
     </column>
-    <column id="20" parent="8" name="lastName">
+    <column id="18" parent="8" name="updatedAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="19" parent="9" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="20" parent="9" name="ID">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="21" parent="9" name="__v">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="22" parent="9" name="createdAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="23" parent="9" name="presidentialVote">
+      <DataType>map(0)|4999544s</DataType>
+    </column>
+    <column id="24" parent="9" name="updatedAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="25" parent="9" name="firstName">
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="21" parent="8" name="district">
+    <column id="26" parent="9" name="registrationNumber">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="27" parent="9" name="lastName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="28" parent="9" name="district">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="29" parent="9" name="presidentialVote.candidate">
       <Position>1</Position>
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="22" parent="8" name="presidentialVote.candidate">
+    <column id="30" parent="9" name="gender">
       <Position>1</Position>
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="23" parent="8" name="gender">
-      <Position>1</Position>
-      <DataType>String(0)|12s</DataType>
-    </column>
-    <column id="24" parent="8" name="legislativeVote">
+    <column id="31" parent="9" name="legislativeVote">
       <Position>1</Position>
       <DataType>map(0)|4999544s</DataType>
     </column>
-    <column id="25" parent="8" name="presidentialVote.partyList">
+    <column id="32" parent="9" name="presidentialVote.partyList">
       <Position>2</Position>
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="26" parent="8" name="legislativeVote.candidate">
+    <column id="33" parent="9" name="legislativeVote.candidate">
       <Position>2</Position>
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="27" parent="8" name="legislativeVote.partyList">
+    <column id="34" parent="9" name="legislativeVote.partyList">
       <Position>3</Position>
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="28" parent="9" name="_id">
+    <column id="35" parent="10" name="_id">
       <DataType>ObjectId(0)|12s</DataType>
     </column>
-    <column id="29" parent="9" name="__v">
+    <column id="36" parent="10" name="__v">
       <DataType>Integer|4s</DataType>
     </column>
-    <column id="30" parent="9" name="candidateName">
+    <column id="37" parent="10" name="candidateName">
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="31" parent="9" name="createdAt">
+    <column id="38" parent="10" name="createdAt">
       <DataType>Date(0)|91s</DataType>
     </column>
-    <column id="32" parent="9" name="listName">
+    <column id="39" parent="10" name="listName">
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="33" parent="9" name="updatedAt">
+    <column id="40" parent="10" name="updatedAt">
       <DataType>Date(0)|91s</DataType>
     </column>
-    <column id="34" parent="10" name="_id">
+    <column id="41" parent="11" name="_id">
       <DataType>ObjectId(0)|12s</DataType>
-    </column>
-    <column id="35" parent="10" name="__v">
-      <DataType>Integer|4s</DataType>
-    </column>
-    <column id="36" parent="10" name="candidateName">
-      <DataType>String(0)|12s</DataType>
-    </column>
-    <column id="37" parent="10" name="createdAt">
-      <DataType>Date(0)|91s</DataType>
-    </column>
-    <column id="38" parent="10" name="listName">
-      <DataType>String(0)|12s</DataType>
-    </column>
-    <column id="39" parent="10" name="updatedAt">
-      <DataType>Date(0)|91s</DataType>
-    </column>
-    <column id="40" parent="11" name="_id">
-      <DataType>ObjectId(0)|12s</DataType>
-    </column>
-    <column id="41" parent="11" name="ID">
-      <DataType>Integer|4s</DataType>
     </column>
     <column id="42" parent="11" name="__v">
       <DataType>Integer|4s</DataType>
     </column>
-    <column id="43" parent="11" name="createdAt">
+    <column id="43" parent="11" name="candidateName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="44" parent="11" name="createdAt">
       <DataType>Date(0)|91s</DataType>
     </column>
-    <column id="44" parent="11" name="email">
+    <column id="45" parent="11" name="listName">
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="45" parent="11" name="lastName">
-      <DataType>String(0)|12s</DataType>
+    <column id="46" parent="11" name="updatedAt">
+      <DataType>Date(0)|91s</DataType>
     </column>
-    <column id="46" parent="11" name="password">
-      <DataType>String(0)|12s</DataType>
+    <column id="47" parent="12" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
     </column>
-    <column id="47" parent="11" name="registrationNumber">
+    <column id="48" parent="12" name="ID">
       <DataType>Integer|4s</DataType>
     </column>
-    <column id="48" parent="11" name="updatedAt">
+    <column id="49" parent="12" name="__v">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="50" parent="12" name="createdAt">
       <DataType>Date(0)|91s</DataType>
     </column>
-    <column id="49" parent="11" name="firstName">
+    <column id="51" parent="12" name="email">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="52" parent="12" name="lastName">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="53" parent="12" name="password">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="54" parent="12" name="registrationNumber">
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="55" parent="12" name="updatedAt">
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="56" parent="12" name="firstName">
       <Position>1</Position>
       <DataType>String(0)|12s</DataType>
     </column>
-    <column id="50" parent="11" name="phoneNumber">
+    <column id="57" parent="12" name="phoneNumber">
       <Position>1</Position>
       <DataType>Integer|4s</DataType>
     </column>
